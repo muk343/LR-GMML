@@ -41,7 +41,7 @@ function[Uopt, Bopt] = lowrank_metric_learning(d,r,t,S,D, configurationParams)
     % Euclidean gradient
     problem.egrad = @grad;
     function [g, store] = grad(U, store)
-        if ~isfield(store, 'Z')
+        if ~isfield(store, 'B')
             [~, store] = cost(U, store);
         end
         Stilde = store.Stilde;
